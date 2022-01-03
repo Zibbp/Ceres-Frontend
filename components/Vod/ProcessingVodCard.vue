@@ -56,7 +56,7 @@
     <div class="pt-2 pb-2 w-auto rounded-b-lg">
       <a>
         <h5
-          class="text-gray-900 text-md font-bold tracking-tight dark:text-white truncate"
+          class="text-gray-900 text-md font-medium tracking-tight dark:text-white truncate"
           :title="vod.title"
         >
           {{ vod.title }}

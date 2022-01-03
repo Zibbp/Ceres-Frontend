@@ -31,7 +31,7 @@
       <nuxt-link :to="'/vods/' + vod.id">
         <a>
           <h5
-            class="text-gray-900 text-md font-bold tracking-tight dark:text-white truncate"
+            class="text-gray-900 text-md font-medium tracking-tight dark:text-white truncate"
             :title="vod.title"
           >
             {{ vod.title }}

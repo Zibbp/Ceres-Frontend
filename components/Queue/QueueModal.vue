@@ -53,7 +53,7 @@ export default {
       timer: '',
     }
   },
-  async created() {
+  async mounted() {
     this.fetchLog()
     this.timer = setInterval(this.fetchLog, 5000)
   },
@@ -70,13 +70,17 @@ export default {
       }
     },
     closeModal() {
+      clearInterval(this.timer)
       this.$nuxt.$emit('closeModal')
     },
     cancelAutoUpdate() {
       clearInterval(this.timer)
     },
     destroyed() {
-      this.cancelAutoUpdate()
+      clearInterval(this.timer)
+    },
+    unmounted() {
+      clearInterval(this.timer)
     },
   },
 }

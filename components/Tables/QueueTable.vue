@@ -9,9 +9,14 @@
         v-if="showModal"
         class="modal h-screen w-full fixed z-10 left-0 top-0 flex justify-center items-center bg-black bg-opacity-50"
       >
-        <queue-modal :log="log" />
+        <queue-modal v-if="showModal" :log="log" />
       </div>
-      <vue-good-table :columns="columns" :rows="data" class="mt-4">
+      <vue-good-table
+        :theme="$colorMode.preference === 'dark' ? 'nocturnal' : ''"
+        :columns="columns"
+        :rows="data"
+        class="mt-4"
+      >
         <template slot="table-row" slot-scope="props">
           <span v-if="props.column.field == 'vodId'">
             {{ props.row.vodId }}
@@ -220,4 +225,9 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+.vgt-table.nocturnal {
+  background-color: #171717 !important;
+  border: 0 !important;
+}
+</style>
