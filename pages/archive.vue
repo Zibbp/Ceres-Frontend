@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-md mt-20 dark:bg-neutral-800"
+    class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-md mt-4 dark:bg-neutral-800"
   >
     <div class="px-6 py-4">
       <h2 class="text-3xl font-bold text-center text-gray-700 dark:text-white">
@@ -20,7 +20,7 @@
           <input
             @change="fetchVodInfo"
             v-model="id"
-            class="block w-full px-4 py-2 mt-2 text-gray-700 dark:text-gray-300 placeholder-gray-500 bg-white border rounded-md dark:bg-neutral-700 dark:border-gray-600 dark:placeholder-gray-400 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
+            class="block w-full px-4 py-2 mt-2 text-gray-700 dark:text-gray-300 placeholder-gray-500 bg-white border rounded-md dark:bg-neutral-700 dark:border-gray-600 dark:placeholder-gray-400 focus:border-dark-purple-500 ring-dark-purple-600 dark:focus:border-dark-purple-600 focus:outline-none focus:ring"
             type="text"
             placeholder="123456789"
             aria-label="VOD Id"

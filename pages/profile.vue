@@ -2,7 +2,7 @@
   <div class="container mx-auto">
     <div class="mt-4 flex flex-wrap items-center justify-center">
       <div
-        class="container lg:w-2/6 xl:w-2/7 sm:w-full md:w-2/3 bg-white shadow-lg transform duration-200 easy-in-out"
+        class="container lg:w-2/6 xl:w-2/7 sm:w-full md:w-2/3 bg-white dark:bg-neutral-800 shadow-lg transform duration-200 easy-in-out"
       >
         <div class="h-32 overflow-hidden">
           <img class="w-full" src="/images/profile-header.jpg" alt="" />
@@ -18,20 +18,26 @@
         </div>
         <div class="pb-6">
           <div class="px-14">
-            <h2 class="text-gray-800 text-3xl text-center font-bold">
+            <h2
+              class="text-gray-800 text-3xl text-center font-bold dark:text-gray-100"
+            >
               {{ $auth.user.username }}
             </h2>
-            <p class="text-gray-400 text-center mt-2">{{ $auth.user.roles }}</p>
-            <h3 class="text-xl mt-1 text-gray-700 font-bold">Webhook</h3>
-            <p class="text-sm">
+            <p class="text-gray-400 dark:text-gray-200 text-center mt-2">
+              {{ $auth.user.roles }}
+            </p>
+            <h3 class="text-xl mt-1 text-gray-700 dark:text-gray-100 font-bold">
+              Webhook
+            </h3>
+            <p class="text-sm dark:text-gray-200">
               Enter a Discord webhook url to receive a notification when a VOD
-              is archived.
+              you submitted is archived.
             </p>
             <form @submit.prevent="updateUser()">
               <div class="w-full mt-4">
                 <input
                   v-model="user.webhook"
-                  class="block w-full px-4 py-2 mt-2 text-gray-700 dark:text-gray-300 placeholder-gray-500 bg-white border rounded-md dark:bg-neutral-700 dark:border-gray-600 dark:placeholder-gray-400 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
+                  class="block w-full px-4 py-2 mt-2 text-gray-700 dark:text-gray-300 placeholder-gray-500 bg-white border rounded-md dark:bg-neutral-700 dark:border-gray-600 dark:placeholder-gray-400 focus:border-dark-purple-500 ring-dark-purple-600 dark:focus:border-dark-purple-600 focus:outline-none focus:ring"
                   type="text"
                   aria-label="Webhook"
                   required

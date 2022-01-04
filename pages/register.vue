@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-md mt-20 dark:bg-gray-800"
+    class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-md mt-20 dark:bg-neutral-800"
   >
     <div class="px-6 py-4">
       <h2 class="text-3xl font-bold text-center text-gray-700 dark:text-white">
@@ -13,7 +13,7 @@
         <div class="w-full mt-4">
           <input
             v-model="register.username"
-            class="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-500 bg-white border rounded-md dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
+            class="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-500 bg-white border rounded-md dark:bg-neutral-800 dark:border-gray-600 dark:placeholder-gray-400 focus:border-dark-purple-500 ring-dark-purple-600 dark:focus:border-dark-purple-600 focus:outline-none focus:ring"
             type="text"
             placeholder="Username"
             aria-label="Username"
@@ -24,7 +24,7 @@
         <div class="w-full mt-4">
           <input
             v-model="register.password"
-            class="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-500 bg-white border rounded-md dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
+            class="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-500 bg-white border rounded-md dark:bg-neutral-800 dark:border-gray-600 dark:placeholder-gray-400 focus:border-dark-purple-500 ring-dark-purple-600 dark:focus:border-dark-purple-600 focus:outline-none focus:ring"
             type="password"
             placeholder="Password"
             aria-label="Password"
@@ -76,7 +76,7 @@
     </div>
 
     <div
-      class="flex items-center justify-center py-4 text-center bg-gray-50 dark:bg-gray-700"
+      class="flex items-center justify-center py-4 text-center bg-gray-50 dark:bg-neutral-700"
     >
       <span class="text-sm text-gray-600 dark:text-gray-200"
         >Have an account?
