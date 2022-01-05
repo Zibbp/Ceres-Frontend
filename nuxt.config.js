@@ -6,6 +6,7 @@ export default {
   publicRuntimeConfig: {
     apiURL: process.env.API_URL,
     cdnURL: process.env.CDN_URL,
+    envMode: process.env.NODE_ENV || 'development',
   },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -90,7 +91,7 @@ export default {
       prefix: 'auth.',
       options: {
         path: '/',
-        secure: process.env.NODE_ENV === 'production',
+        secure: false,
       },
     },
   },
