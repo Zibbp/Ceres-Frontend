@@ -1,7 +1,7 @@
 <template>
   <nuxt-link :to="'/channels/' + channel.login">
     <div
-      class="bg-white dark:bg-dark-black-700 shadow-md border border-gray-200 dark:border-dark-black-600 rounded-lg max-w-sm mb-5"
+      class="dark:bg-dark-black-700 rounded-lg max-w-sm mb-5 hover:outline hover:outline-3 hover:outline-dark-purple-600"
     >
       <a href="#">
         <img
