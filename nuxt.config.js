@@ -61,6 +61,7 @@ export default {
   },
   // Auth
   auth: {
+    plugins: ['~/plugins/auth.js'],
     strategies: {
       local: {
         token: {
