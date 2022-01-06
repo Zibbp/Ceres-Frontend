@@ -19,7 +19,7 @@
         <img
           :src="$config.cdnURL + vod.webThumbnailPath"
           alt=""
-          class="relative z-10 w-auto h-full transition-transform transform ease duration-100"
+          class="relative z-10 w-auto vod-card-height transition-transform transform ease duration-100"
         />
       </nuxt-link>
 
@@ -89,5 +89,9 @@ export default {
 }
 .bg-vod-badge {
   background-color: rgba(0, 0, 0, 0.6);
+}
+.vod-card-height {
+  min-height: 8.6rem;
+  height: 8.6rem;
 }
 </style>

@@ -5,7 +5,7 @@
     >
       <a href="#">
         <img
-          class="rounded-t-lg w-52"
+          class="rounded-t-lg w-52 channel-card-height"
           :src="$config.cdnURL + channel.profileImagePath"
           alt=""
         />
@@ -34,4 +34,9 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+.channel-card-height {
+  min-height: 12.6rem;
+  height: 12.6rem;
+}
+</style>
