@@ -91,8 +91,8 @@ export default {
       prefix: 'auth.',
       options: {
         path: '/',
+        expires: 14,
         secure: false,
-        maxAge: 1000 * 60 * 60 * 24 * 30, // 30 days
       },
     },
   },
