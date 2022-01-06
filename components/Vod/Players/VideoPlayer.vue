@@ -38,7 +38,7 @@ export default {
   },
   mounted() {
     this.player = this.$refs.vodVideoPlayer.player
-    this.player.on('play', (event) => {
+    this.player.on('playing', (event) => {
       this.$nuxt.$emit('play')
     })
     this.player.on('pause', (event) => {
