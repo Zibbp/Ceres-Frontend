@@ -9,6 +9,12 @@ export default {
     envMode: process.env.NODE_ENV || 'development',
   },
 
+  privateRuntimeConfig: {
+    axios: {
+      baseURL: process.env.API_URL,
+    },
+  },
+
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'Ceres',
@@ -74,15 +80,15 @@ export default {
         },
         endpoints: {
           login: {
-            url: `${process.env.API_URL}/v1/auth/login`,
+            url: `/v1/auth/login`,
             method: 'post',
           },
           user: {
-            url: `${process.env.API_URL}/v1/auth/me`,
+            url: `/v1/auth/me`,
             method: 'get',
           },
           logout: {
-            url: `${process.env.API_URL}/v1/auth/logout`,
+            url: `/v1/auth/logout`,
             method: 'post',
           },
         },
