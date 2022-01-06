@@ -5,4 +5,6 @@ export default function ({ $auth, $config }) {
   if ($config.envMode === 'production') {
     $auth.options.cookie.options.secure = true
   }
+  console.log('auth-debug', $auth.strategies.local)
+  console.log('auth-debug', $auth.options)
 }
