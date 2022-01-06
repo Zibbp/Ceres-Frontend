@@ -6,7 +6,9 @@
     </div>
     <div v-if="items">
       <div class="container mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-1">
+        <div
+          class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-1"
+        >
           <div
             v-for="vod in items.items"
             :key="vod.id"
