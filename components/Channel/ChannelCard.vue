@@ -5,10 +5,17 @@
     >
       <a href="#">
         <img
-          class="rounded-t-lg w-52 channel-card-height"
+          v-show="imageLoaded"
+          class="rounded-t-lg w-auto h-52"
           :src="$config.cdnURL + channel.profileImagePath"
           alt=""
+          @load="imageLoadedMethod"
         />
+        <div
+          v-show="!imageLoaded"
+          data-placeholder
+          class="rounded-t-lg w-52 h-52 overflow-hidden relative bg-gray-200"
+        ></div>
       </a>
       <div class="pr-5 pl-5 pt-2 pb-2">
         <a href="#">
@@ -31,12 +38,35 @@ export default {
       required: true,
     },
   },
+  data() {
+    return {
+      imageLoaded: false,
+    }
+  },
+  methods: {
+    imageLoadedMethod() {
+      this.imageLoaded = true
+    },
+  },
 }
 </script>
 
 <style>
-.channel-card-height {
-  min-height: 12.6rem;
-  height: 12.6rem;
+[data-placeholder]::after {
+  content: ' ';
+  box-shadow: 0 0 50px 9px rgba(254, 254, 254);
+  position: absolute;
+  top: 0;
+  left: -100%;
+  height: 100%;
+  animation: load 1s infinite;
+}
+@keyframes load {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 150%;
+  }
 }
 </style>

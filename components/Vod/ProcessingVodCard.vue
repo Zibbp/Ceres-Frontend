@@ -7,7 +7,7 @@
         class="absolute -top-2 left-0 border-0.25 border-dark-purple-600 transition-transform transform translate-y-2 ease duration-100"
       ></span>
       <div
-        class="px-1 py-1 left-14 z-20 top-12 -ml-5 text-2xl flex items-center absolute text-white bg-vod-downloading"
+        class="z-20 flex items-center justify-center w-full py-1 absolute text-white bg-vod-downloading"
       >
         <svg
           class="animate-spin h-5 w-5 text-white mr-1"
@@ -44,10 +44,17 @@
       </div>
 
       <img
+        v-show="imageLoaded"
         :src="$config.cdnURL + vod.webThumbnailPath"
         alt=""
-        class="relative z-10 w-auto h-full transition-transform transform ease duration-100"
+        class="relative w-full h-96 md:h-36 lg:h-36 xl:h-36 2xl:h-36 transition-transform transform ease duration-100"
+        @load="imageLoadedMethod"
       />
+      <div
+        v-show="!imageLoaded"
+        data-placeholder
+        class="realtive w-full h-96 md:h-36 lg:h-36 xl:h-36 2xl:h-36 overflow-hidden relative bg-gray-200"
+      ></div>
 
       <span
         class="absolute bottom-0 -right-2 border-0.25 border-dark-purple-600 transition-transform transform -translate-x-2 rotate-180 ease duration-100"
@@ -80,10 +87,15 @@ export default {
   data() {
     return {
       duration: '',
+      imageLoaded: false,
     }
   },
   mounted() {},
-  methods: {},
+  methods: {
+    imageLoadedMethod() {
+      this.imageLoaded = true
+    },
+  },
 }
 </script>
 

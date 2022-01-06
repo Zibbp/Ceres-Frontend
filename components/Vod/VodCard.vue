@@ -17,10 +17,17 @@
           {{ $dayjs(vod.createdAt).format('MM/DD/YYYY') }}
         </div>
         <img
+          v-show="imageLoaded"
           :src="$config.cdnURL + vod.webThumbnailPath"
           alt=""
-          class="relative z-10 w-auto vod-card-height transition-transform transform ease duration-100"
+          class="relative w-full h-96 md:h-36 lg:h-36 xl:h-36 2xl:h-36 transition-transform transform ease duration-100"
+          @load="imageLoadedMethod"
         />
+        <div
+          v-show="!imageLoaded"
+          data-placeholder
+          class="realtive w-full h-96 md:h-36 lg:h-36 xl:h-36 2xl:h-36 overflow-hidden relative bg-gray-200"
+        ></div>
       </nuxt-link>
 
       <span
@@ -56,10 +63,15 @@ export default {
   data() {
     return {
       duration: '',
+      imageLoaded: false,
     }
   },
   mounted() {},
-  methods: {},
+  methods: {
+    imageLoadedMethod() {
+      this.imageLoaded = true
+    },
+  },
 }
 </script>
 
@@ -90,8 +102,21 @@ export default {
 .bg-vod-badge {
   background-color: rgba(0, 0, 0, 0.6);
 }
-.vod-card-height {
-  min-height: 8.6rem;
-  height: 8.6rem;
+[data-placeholder]::after {
+  content: ' ';
+  box-shadow: 0 0 50px 9px rgba(254, 254, 254);
+  position: absolute;
+  top: 0;
+  left: -100%;
+  height: 100%;
+  animation: load 1s infinite;
+}
+@keyframes load {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 150%;
+  }
 }
 </style>
