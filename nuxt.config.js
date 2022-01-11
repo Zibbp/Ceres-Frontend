@@ -7,6 +7,9 @@ export default {
     apiURL: process.env.API_URL,
     cdnURL: process.env.CDN_URL,
     envMode: process.env.NODE_ENV || 'development',
+    axios: {
+      baseURL: process.env.API_URL,
+    },
   },
 
   privateRuntimeConfig: {
