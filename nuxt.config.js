@@ -122,7 +122,7 @@ export default {
     meta: {
       appleStatusBarStyle: 'black',
       name: 'Ceres',
-      theme_color: '#700B97',
+      theme_color: '#373838',
       mobileAppIOS: true,
       nativeUI: true,
     },
@@ -130,7 +130,7 @@ export default {
       name: 'Ceres',
       short_name: 'Ceres',
       display: 'standalone',
-      background_color: '#700B97',
+      background_color: '#373838',
       icons: [
         {
           src: '/icon-64.png',
