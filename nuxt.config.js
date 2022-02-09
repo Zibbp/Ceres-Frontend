@@ -49,6 +49,7 @@ export default {
     '@nuxtjs/eslint-module',
     '@nuxt/postcss8',
     '@nuxtjs/color-mode',
+    '@nuxtjs/pwa',
   ],
   colorMode: {
     classSuffix: '',
@@ -59,7 +60,6 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
-    '@nuxtjs/pwa',
     '@nuxtjs/auth-next',
     '@nuxtjs/dayjs',
     'vue-toastification/nuxt',
@@ -118,8 +118,33 @@ export default {
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
+    icon: false,
+    meta: {
+      appleStatusBarStyle: 'black',
+      name: 'Ceres',
+      theme_color: '#700B97',
+      mobileAppIOS: true,
+      nativeUI: true,
+    },
     manifest: {
-      lang: 'en',
+      name: 'Ceres',
+      short_name: 'Ceres',
+      display: 'standalone',
+      background_color: '#700B97',
+      icons: [
+        {
+          src: '/icon-64.png',
+          sizes: '64x64',
+        },
+        {
+          src: '/icon-192.png',
+          sizes: '192x192',
+        },
+        {
+          src: '/icon-512.png',
+          sizes: '512x512',
+        },
+      ],
     },
   },
 
