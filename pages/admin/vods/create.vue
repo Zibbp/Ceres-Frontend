@@ -57,7 +57,7 @@
                 v-model="vod.id"
                 required
                 id="id"
-                type="text"
+                type="number"
                 class="block w-full px-4 pl-10 py-2 mt-2 dark:bg-neutral-800 text-gray-700 border border-gray-300 rounded-md dark:text-gray-300 dark:border-gray-600 focus:border-dark-purple-500 ring-dark-purple-600 dark:focus:border-dark-purple-600 focus:outline-none focus:ring"
               />
             </div>
