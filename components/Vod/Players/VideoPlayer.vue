@@ -1,7 +1,7 @@
 <template>
   <vue-plyr ref="vodVideoPlayer" class="player" :options="playerOptions">
     <video controls crossorigin playsinline>
-      <source :src="videoUrl" type="video/mp4" />
+      <source :src="videoUrl" :type="type" />
     </video>
   </vue-plyr>
 </template>
@@ -15,6 +15,7 @@ export default {
   },
   data() {
     return {
+      type: 'video/mp4',
       player: null,
       playerOptions: {
         clickToPlay: true,
@@ -37,6 +38,16 @@ export default {
     }
   },
   mounted() {
+    if (this.videoUrl) {
+      const videoExt = this.videoUrl.substr(-4)
+      if (videoExt == '.mp4') {
+        this.type = 'video/mp4'
+      }
+      if (videoExt == '.mkv') {
+        this.type = 'video/webm'
+      }
+    }
+
     this.player = this.$refs.vodVideoPlayer.player
     this.player.on('playing', (event) => {
       this.$nuxt.$emit('play')
