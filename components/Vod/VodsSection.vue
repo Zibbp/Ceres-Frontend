@@ -53,12 +53,13 @@
         {{ pagination.currentPage + 1 }}
       </button>
 
-      <!-- <button
+      <button
+        v-if="pagination.currentPage < pagination.totalPages - 1"
         @click="lastPage()"
         class="px-4 py-2 text-gray-700 bg-gray-300 rounded-md hover:bg-dark-purple-700 dark:bg-neutral-700 dark:text-white dark:hover:bg-dark-purple-700 hover:text-white"
       >
         {{ pagination.totalPages }}
-      </button> -->
+      </button>
 
       <button
         @click="nextPage()"
