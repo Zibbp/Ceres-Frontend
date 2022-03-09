@@ -11,6 +11,18 @@ export default {
   components: {
     QueueTable,
   },
+  head() {
+    return {
+      title: `Ceres - Queue`,
+      meta: [
+        {
+          hid: `ceres-queue`,
+          name: `ceres-queue`,
+          content: `Ceres Queue`,
+        },
+      ],
+    }
+  },
 }
 </script>
 

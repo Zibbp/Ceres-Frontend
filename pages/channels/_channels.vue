@@ -25,6 +25,18 @@ export default {
       }
     }
   },
+  head() {
+    return {
+      title: `${this.channel.displayName}'s Videos`,
+      meta: [
+        {
+          hid: `${this.channel.displayName}-videos`,
+          name: `${this.channel.displayName}-videos`,
+          content: `${this.channel.displayName}'s videos`,
+        },
+      ],
+    }
+  },
   components: {
     ChannelHeader,
     VodsSection,
