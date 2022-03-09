@@ -54,6 +54,10 @@ export default {
   colorMode: {
     classSuffix: '',
   },
+  loading: {
+    color: '#700B97',
+    height: '3px',
+  },
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
