@@ -80,6 +80,18 @@ export default {
   components: {
     PreviewVodCard,
   },
+  head() {
+    return {
+      title: `Ceres - Archive`,
+      meta: [
+        {
+          hid: `ceres-archive`,
+          name: `ceres-archive`,
+          content: `Ceres Archive`,
+        },
+      ],
+    }
+  },
   data() {
     return {
       loading: false,

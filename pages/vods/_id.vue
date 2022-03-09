@@ -54,6 +54,18 @@ export default {
     }
     return { vod, loading: false }
   },
+  head() {
+    return {
+      title: `${this.vod.title}`,
+      meta: [
+        {
+          hid: `${this.vod.title}-VOD`,
+          name: `${this.vod.title}-VOD`,
+          content: `${this.vod.title} VOD`,
+        },
+      ],
+    }
+  },
   components: {
     VodTitle,
     VideoPlayer,

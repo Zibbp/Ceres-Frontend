@@ -43,6 +43,18 @@ export default {
       err,
     }
   },
+  head() {
+    return {
+      title: `Ceres - Channels`,
+      meta: [
+        {
+          hid: `ceres-channels`,
+          name: `ceres-channels`,
+          content: `Ceres channels`,
+        },
+      ],
+    }
+  },
   components: {
     ChannelCard,
     Loading,

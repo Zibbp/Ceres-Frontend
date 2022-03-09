@@ -31,6 +31,7 @@ export default {
           'settings',
           'pip',
           'airplay',
+          'download',
           'fullscreen',
         ],
         settings: ['captions', 'quality', 'speed', 'loop'],

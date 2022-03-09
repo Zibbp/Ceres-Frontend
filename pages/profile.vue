@@ -152,6 +152,18 @@ export default {
     const fetchUser = await this.$axios.get(`${this.$config.apiURL}/v1/auth/me`)
     this.user = fetchUser.data.user
   },
+  head() {
+    return {
+      title: `Ceres - ${this.$auth.user.username}`,
+      meta: [
+        {
+          hid: `ceres-profile`,
+          name: `ceres-profile`,
+          content: `Ceres Profile`,
+        },
+      ],
+    }
+  },
   methods: {
     async updateUser() {
       try {
