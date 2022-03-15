@@ -1,32 +1,27 @@
 <template>
   <nuxt-link :to="'/channels/' + channel.login">
-    <div
-      class="dark:bg-dark-black-700 rounded-lg max-w-sm mb-5 hover:outline hover:outline-3 hover:outline-dark-purple-600"
+    <article
+      class="mx-auto group w-full shadow-lg max-w-md pb-2 rounded-b-2xl transform duration-500 hover:-translate-y-2 cursor-pointer"
     >
-      <a href="#">
-        <img
-          v-show="imageLoaded"
-          class="rounded-t-lg w-auto h-52"
-          :src="$config.cdnURL + channel.profileImagePath"
-          alt=""
-          @load="imageLoadedMethod"
-        />
-        <div
-          v-show="!imageLoaded"
-          data-placeholder
-          class="rounded-t-lg w-52 h-52 overflow-hidden relative bg-gray-200"
-        ></div>
-      </a>
-      <div class="pr-5 pl-5 pt-2 pb-2">
-        <a href="#">
-          <h5
-            class="text-gray-900 dark:text-gray-300 font-bold text-center text-2xl tracking-tight"
-          >
-            {{ channel.displayName }}
-          </h5>
-        </a>
+      <img
+        v-show="imageLoaded"
+        class="content bg-cover bg-center h-52 rounded-2xl"
+        :src="$config.cdnURL + channel.profileImagePath"
+        @load="imageLoadedMethod"
+      />
+      <div
+        v-show="!imageLoaded"
+        data-placeholder
+        class="content bg-cover bg-center h-52 rounded-2xl w-52 overflow-hidden relative bg-gray-200"
+      ></div>
+      <div class="">
+        <p
+          class="mt-1 text-2xl text-gray-700 text-center dark:text-neutral-200"
+        >
+          {{ channel.displayName }}
+        </p>
       </div>
-    </div>
+    </article>
   </nuxt-link>
 </template>
 
