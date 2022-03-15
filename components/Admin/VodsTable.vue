@@ -106,16 +106,7 @@ export default {
           field: 'delete',
         },
       ],
-      rows: [
-        {
-          id: 1233635780,
-          title: 'A VOD Title',
-          boradcastType: 'archive',
-          resolution: 'source',
-          createdAt: '2021-12-27T20:24:22.002Z',
-          channel: { displayName: 'zibbp' },
-        },
-      ],
+      rows: [],
     }
   },
   async mounted() {

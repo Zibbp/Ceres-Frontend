@@ -12,7 +12,7 @@
           <div
             v-for="channel in data"
             :key="channel.id"
-            class="flex justify-center rounded-xl p-6"
+            class="flex justify-center rounded-xl px-6 py-4"
           >
             <channel-card :channel="channel"></channel-card>
           </div>
