@@ -107,17 +107,7 @@ export default {
           field: 'delete',
         },
       ],
-      rows: [
-        {
-          id: '123',
-          vodId: '123',
-          liveArchive: false,
-          videoDone: false,
-          chatDownloadDone: false,
-          chatRenderDone: false,
-          completed: false,
-        },
-      ],
+      rows: [],
     }
   },
   async mounted() {

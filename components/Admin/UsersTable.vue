@@ -98,14 +98,7 @@ export default {
           field: 'delete',
         },
       ],
-      rows: [
-        {
-          id: '123',
-          username: 'zibbp',
-          roles: 'admin',
-          createdAt: '2021-12-20T20:48:53.614Z',
-        },
-      ],
+      rows: [],
     }
   },
   async mounted() {

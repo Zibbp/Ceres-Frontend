@@ -87,13 +87,7 @@ export default {
           field: 'delete',
         },
       ],
-      rows: [
-        {
-          id: '123',
-          login: 'ceres',
-          displayName: 'Ceres',
-        },
-      ],
+      rows: [],
     }
   },
   async mounted() {
