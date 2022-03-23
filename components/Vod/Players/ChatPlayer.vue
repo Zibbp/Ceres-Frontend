@@ -20,7 +20,7 @@ export default {
       playerOptions: {
         clickToPlay: false,
         autoplay: false,
-        controls: ['play-large', 'play', 'progress', 'current-time'],
+        controls: [],
         settings: [],
       },
     }
