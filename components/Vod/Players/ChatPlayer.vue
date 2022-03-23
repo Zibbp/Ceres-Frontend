@@ -1,16 +1,13 @@
 <template>
-  <vue-plyr
-    ref="vodChatPlayer"
-    class="player flex items-center justify-center"
-    :options="playerOptions"
-  >
-    <video controls crossorigin playsinline>
+  <div class="player flex items-center justify-center">
+    <video class="player" ref="chatPlayer" id="chatPlayer">
       <source :src="chatUrl" type="video/mp4" />
     </video>
-  </vue-plyr>
+  </div>
 </template>
 
 <script>
+import Plyr from 'plyr'
 export default {
   props: {
     chatUrl: {
@@ -23,13 +20,14 @@ export default {
       playerOptions: {
         clickToPlay: false,
         autoplay: false,
-        controls: [],
+        controls: ['play-large', 'play', 'progress', 'current-time'],
         settings: [],
       },
     }
   },
   mounted() {
-    this.player = this.$refs.vodChatPlayer.player
+    this.player = new Plyr(this.$refs.chatPlayer, this.playerOptions)
+
     this.$nuxt.$on('play', () => {
       this.player.play()
     })
@@ -44,11 +42,14 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .plyr {
   width: 100%;
   height: calc(100vh - 9rem) !important;
 }
+</style>
+
+<style scoped>
 .plyr video {
   bottom: 0;
   position: absolute;

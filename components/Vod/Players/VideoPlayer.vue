@@ -1,12 +1,13 @@
 <template>
-  <vue-plyr ref="vodVideoPlayer" class="player" :options="playerOptions">
-    <video controls crossorigin playsinline>
+  <div class="player">
+    <video class="player" ref="videoPlayer" id="videoPlayer">
       <source :src="videoUrl" :type="type" />
     </video>
-  </vue-plyr>
+  </div>
 </template>
 
 <script>
+import Plyr from 'plyr'
 export default {
   props: {
     videoUrl: {
@@ -49,7 +50,8 @@ export default {
       }
     }
 
-    this.player = this.$refs.vodVideoPlayer.player
+    this.player = new Plyr(this.$refs.videoPlayer, this.playerOptions)
+
     this.player.on('playing', (event) => {
       this.$nuxt.$emit('play')
     })
@@ -69,15 +71,15 @@ export default {
   background-repeat: repeat;
 }
 .player {
-  width: 100%;
-  height: 100% !important;
+  width: 100% !important;
+  height: calc(100vh - 9rem) !important;
 }
 .plyr video {
-  height: 100% !important;
-  width: 100%;
+  height: calc(100vh - 9rem) !important;
+  width: 100% !important;
 }
 .plyr .video {
-  height: 100% !important;
-  width: 100%;
+  height: calc(100vh - 9rem) !important;
+  width: 100% !important;
 }
 </style>
