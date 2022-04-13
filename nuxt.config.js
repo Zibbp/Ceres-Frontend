@@ -68,8 +68,8 @@ export default {
     'vue-toastification/nuxt',
   ],
   toast: {
-    position: 'top-center',
-    timeout: 5000,
+    position: 'bottom-right',
+    timeout: 4000,
     closeOnClick: true,
   },
   // Auth
