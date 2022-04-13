@@ -72,14 +72,14 @@ export default {
 }
 .player {
   width: 100% !important;
-  height: calc(100vh - 9rem) !important;
+  height: 100% !important;
 }
 .plyr video {
-  height: calc(100vh - 9rem) !important;
+  height: 100% !important;
   width: 100% !important;
 }
 .plyr .video {
-  height: calc(100vh - 9rem) !important;
+  height: 100% !important;
   width: 100% !important;
 }
 </style>
