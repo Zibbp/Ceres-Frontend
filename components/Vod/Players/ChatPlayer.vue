@@ -34,9 +34,8 @@ export default {
     this.$nuxt.$on('pause', () => {
       this.player.pause()
     })
-    this.$nuxt.$on('seek', (time, videoDuration) => {
-      const difference = this.player.duration - videoDuration
-      this.player.currentTime = time + difference
+    this.$nuxt.$on('seek', (time) => {
+      this.player.currentTime = time
     })
   },
 }

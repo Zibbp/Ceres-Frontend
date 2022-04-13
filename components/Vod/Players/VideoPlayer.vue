@@ -60,7 +60,7 @@ export default {
     })
     // Send seek time to chat player
     this.player.on('seeking', (event) => {
-      this.$nuxt.$emit('seek', this.player.currentTime, this.player.duration)
+      this.$nuxt.$emit('seek', this.player.currentTime)
     })
   },
 }
