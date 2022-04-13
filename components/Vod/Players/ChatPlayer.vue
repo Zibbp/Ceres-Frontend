@@ -1,5 +1,5 @@
 <template>
-  <div class="player flex items-center justify-center">
+  <div class="player plyr flex items-center justify-center">
     <video class="player" ref="chatPlayer" id="chatPlayer">
       <source :src="chatUrl" type="video/mp4" />
     </video>
@@ -34,9 +34,8 @@ export default {
     this.$nuxt.$on('pause', () => {
       this.player.pause()
     })
-    this.$nuxt.$on('seek', (time, videoDuration) => {
-      const difference = this.player.duration - videoDuration
-      this.player.currentTime = time + difference
+    this.$nuxt.$on('seek', (time) => {
+      this.player.currentTime = time
     })
   },
 }
@@ -45,7 +44,11 @@ export default {
 <style>
 .plyr {
   width: 100%;
-  height: calc(100vh - 9rem) !important;
+  height: 100% !important;
+}
+.plyr-full-height {
+  height: 100vh !important;
+  width: 100%;
 }
 </style>
 

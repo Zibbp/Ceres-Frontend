@@ -60,7 +60,7 @@ export default {
     })
     // Send seek time to chat player
     this.player.on('seeking', (event) => {
-      this.$nuxt.$emit('seek', this.player.currentTime, this.player.duration)
+      this.$nuxt.$emit('seek', this.player.currentTime)
     })
   },
 }
@@ -72,14 +72,14 @@ export default {
 }
 .player {
   width: 100% !important;
-  height: calc(100vh - 9rem) !important;
+  height: 100% !important;
 }
 .plyr video {
-  height: calc(100vh - 9rem) !important;
+  height: 100% !important;
   width: 100% !important;
 }
 .plyr .video {
-  height: calc(100vh - 9rem) !important;
+  height: 100% !important;
   width: 100% !important;
 }
 </style>

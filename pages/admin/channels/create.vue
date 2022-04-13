@@ -99,6 +99,41 @@
         </div>
       </form>
     </section>
+    <section
+      class="max-w-4xl mt-8 p-6 mx-auto bg-white rounded-md shadow-md dark:bg-neutral-800"
+    >
+      <h2
+        class="text-lg font-semibold text-gray-700 capitalize dark:text-white"
+      >
+        Create Twitch Channel
+      </h2>
+
+      <form @submit.prevent="createChannelFromTwitch">
+        <div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
+          <div>
+            <label class="text-gray-700 dark:text-gray-200" for="emailAddress"
+              >Twitch Username</label
+            >
+            <input
+              v-model="twitchChannel"
+              required
+              id="username"
+              type="text"
+              placeholder="ceres"
+              class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-neutral-800 dark:text-gray-300 dark:border-gray-600 focus:border-dark-purple-500 ring-dark-purple-600 dark:focus:border-dark-purple-600 focus:outline-none focus:ring"
+            />
+          </div>
+          <div class="flex justify-end mt-6">
+            <button
+              type="submit"
+              class="px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600"
+            >
+              Create
+            </button>
+          </div>
+        </div>
+      </form>
+    </section>
   </div>
 </template>
 
@@ -112,6 +147,7 @@ export default {
         displayName: '',
         profileImagePath: '',
       },
+      twitchChannel: '',
     }
   },
   watch: {
@@ -130,6 +166,18 @@ export default {
           `${this.$config.apiURL}/v1/channels/manual`,
           this.channel
         )
+        this.$toast.success('Channel created')
+        this.$router.push('/admin/channels')
+      } catch (error) {
+        console.log('Error creating channel', error)
+        this.$toast.error('Error creating channel')
+      }
+    },
+    async createChannelFromTwitch() {
+      try {
+        await this.$axios.post(`${this.$config.apiURL}/v1/channels`, {
+          username: this.twitchChannel,
+        })
         this.$toast.success('Channel created')
         this.$router.push('/admin/channels')
       } catch (error) {

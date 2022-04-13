@@ -231,6 +231,8 @@ export default {
           `${this.$config.apiURL}/v1/vods/${this.vod.id}`,
           {
             ...this.vod,
+            duration: parseInt(this.vod.duration),
+            viewCount: parseInt(this.vod.viewCount),
           }
         )
         this.$toast.success('Vod updated')

@@ -28,7 +28,11 @@
           <span v-if="props.column.field == 'videoDone'">
             <span class="flex" v-if="props.row.videoDone == false">
               <button
-                @click="showLogs(props.row.vodId, 'video_download')"
+                @click="
+                  props.row.liveArchive
+                    ? showLogs(props.row.vodId, 'live_video_download')
+                    : showLogs(props.row.vodId, 'video_download')
+                "
                 class="px-2 py-2 leading-5 flex text-white text-sm transition-colors duration-200 transform bg-gray-700 rounded hover:bg-gray-600 focus:outline-none"
                 type="submit"
               >
@@ -60,7 +64,11 @@
           <span v-if="props.column.field == 'chatDownloadDone'">
             <span v-if="props.row.chatDownloadDone == false">
               <button
-                @click="showLogs(props.row.vodId, 'chat_download')"
+                @click="
+                  props.row.liveArchive
+                    ? showLogs(props.row.vodId, 'live_chat_download')
+                    : showLogs(props.row.vodId, 'chat_download')
+                "
                 class="px-2 py-2 leading-5 flex text-white text-sm transition-colors duration-200 transform bg-gray-700 rounded hover:bg-gray-600 focus:outline-none"
                 type="submit"
               >
@@ -92,7 +100,11 @@
           <span v-if="props.column.field == 'chatRenderDone'">
             <span v-if="props.row.chatRenderDone == false">
               <button
-                @click="showLogs(props.row.vodId, 'chat_render')"
+                @click="
+                  props.row.liveArchive
+                    ? showLogs(props.row.vodId, 'live_chat_render')
+                    : showLogs(props.row.vodId, 'chat_render')
+                "
                 class="px-2 py-2 leading-5 flex text-white text-sm transition-colors duration-200 transform bg-gray-700 rounded hover:bg-gray-600 focus:outline-none"
                 type="submit"
               >
@@ -122,14 +134,14 @@
             <span v-if="props.row.chatRenderDone == true">✅</span>
           </span>
           <span v-if="props.column.field == 'createdAt'">
-            {{ $dayjs(props.row.createdAt).format('MM/DD/YYYY') }}
+            {{ $dayjs(props.row.createdAt).format('MM/DD/YYYY HH:mm') }}
+          </span>
+          <span v-if="props.column.field == 'channelName'">
+            {{ props.row.channelName }}
           </span>
           <span v-if="props.column.field == 'user.username'">
             {{ props.row.user.username }}
           </span>
-          <!-- <span v-else>
-            {{ props.formattedRow[props.column.field] }}
-          </span> -->
         </template>
       </vue-good-table>
     </div>
@@ -194,21 +206,15 @@ export default {
           dateOutputFormat: 'MM/dd/yy',
         },
         {
+          label: 'Channel',
+          field: 'channelName',
+        },
+        {
           label: 'User',
           field: 'user.username',
         },
       ],
-      rows: [
-        {
-          vodId: 1233635780,
-          liveArchive: false,
-          videoDone: true,
-          chatDownloadDone: true,
-          chatRenderDone: false,
-          createdAt: '2021-12-27T20:24:22.002Z',
-          user: { username: 'zibbp' },
-        },
-      ],
+      rows: [],
     }
   },
   mounted() {

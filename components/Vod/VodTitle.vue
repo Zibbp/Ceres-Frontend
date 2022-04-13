@@ -8,12 +8,12 @@
         :alt="vod.channel.displayName"
         class="h-10 w-10 rounded-full"
       />
-      <span class="ml-3 text-xl dark:text-gray-300">{{
+      <span class="ml-3 text-xl dark:text-neutral-200">{{
         vod.channel.displayName
       }}</span>
     </a>
     <p
-      class="text-lg title-front font-medium text-gray-900 dark:text-gray-300 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4"
+      class="text-lg title-front font-medium text-gray-900 dark:text-neutral-200 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4"
     >
       {{ vod.title }}
     </p>
@@ -21,7 +21,28 @@
       class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start"
     >
       <div
-        class="flex mr-4 font-bold dark:text-gray-300"
+        v-if="vod.broadcastType == 'live'"
+        class="flex mr-4 font-bold dark:text-neutral-200"
+        :title="'This VOD was archived live'"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6 mr-1"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
+          />
+        </svg>
+        LIVE
+      </div>
+      <div
+        class="flex mr-4 font-bold dark:text-neutral-200"
         :title="vod.viewCount + ' views'"
       >
         <svg
@@ -41,7 +62,27 @@
         {{ vod.viewCount.toLocaleString() }}
       </div>
       <div
-        class="flex font-bold mr-6 dark:text-gray-300"
+        class="flex mr-4 font-bold dark:text-neutral-200"
+        :title="'Duration'"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6 mr-1"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+          />
+        </svg>
+        {{ $dayjs.duration(vod.duration, 'seconds').format('HH:mm:ss') }}
+      </div>
+      <div
+        class="flex font-bold mr-6 dark:text-neutral-200"
         :title="'Streamed on ' + vod.createdAt"
       >
         <svg
@@ -67,7 +108,7 @@
             v-if="!$store.state.expand"
             @click="toggleExpand()"
             title="Fullscreen"
-            class="hover:bg-gray-400 text-gray-800 dark:text-gray-300 font-bold py-1 px-2 rounded inline-flex items-center"
+            class="hover:bg-gray-400 text-gray-800 dark:text-neutral-200 font-bold py-1 px-2 rounded inline-flex items-center"
           >
             <svg
               aria-hidden="true"
@@ -90,7 +131,7 @@
             v-else
             @click="toggleExpand()"
             title="Fullscreen"
-            class="hover:bg-gray-400 text-gray-800 dark:text-gray-300 font-bold py-1 px-2 rounded inline-flex items-center"
+            class="hover:bg-gray-400 text-gray-800 dark:text-neutral-200 font-bold py-1 px-2 rounded inline-flex items-center"
           >
             <svg
               aria-hidden="true"
@@ -116,7 +157,7 @@
             v-if="$store.state.showChat"
             @click="toggleChat()"
             title="Hide chat"
-            class="hover:bg-gray-400 text-gray-800 dark:text-gray-300 py-1 font-bold px-2 rounded inline-flex items-center"
+            class="hover:bg-gray-400 text-gray-800 dark:text-neutral-200 py-1 font-bold px-2 rounded inline-flex items-center"
           >
             <svg
               aria-hidden="true"
@@ -140,7 +181,7 @@
             v-else
             @click="toggleChat()"
             title="Show chat"
-            class="hover:bg-gray-400 text-gray-800 dark:text-gray-300 font-bold py-1 px-2 rounded inline-flex items-center"
+            class="hover:bg-gray-400 text-gray-800 dark:text-neutral-200 font-bold py-1 px-2 rounded inline-flex items-center"
           >
             <svg
               aria-hidden="true"
