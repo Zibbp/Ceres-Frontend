@@ -6,27 +6,29 @@
           class="w-full mx-auto text-left md:w-11/12 xl:w-9/12 md:text-center"
         >
           <h1
-            class="mb-8 text-4xl font-extrabold leading-none tracking-normal text-gray-900 md:text-6xl md:tracking-tight"
+            class="mb-8 text-4xl font-extrabold leading-none tracking-normal text-gray-900 md:text-6xl md:tracking-tight dark:text-neutral-200"
           >
             <span>Archive Twitch</span>
             <span
               class="block w-full py-2 text-transparent bg-clip-text leading-12 bg-gradient-to-r from-green-400 to-purple-500 lg:inline"
               >Streams</span
             >
-            <span>and</span>
+            <span class="dark:text-neutral-200">and</span>
             <span
               class="block w-full py-2 text-transparent bg-clip-text leading-12 bg-gradient-to-r from-green-400 to-purple-500 lg:inline"
               >VODs</span
             >
           </h1>
-          <p class="px-0 mb-8 text-lg text-gray-600 md:text-xl lg:px-24">
+          <p
+            class="px-0 mb-8 text-lg text-gray-600 md:text-xl lg:px-24 dark:text-neutral-200"
+          >
             Download your favorite Twitch VODs and streams with a rendered chat
             in a single click.
           </p>
           <div class="mb-4 space-x-0 md:space-x-2 md:mb-8">
             <nuxt-link
               to="/archive"
-              class="inline-flex items-center justify-center w-full px-6 py-3 mb-2 text-lg text-white bg-green-400 rounded-2xl sm:w-auto sm:mb-0"
+              class="inline-flex items-center justify-center w-full px-6 py-3 mb-2 text-lg text-white bg-purple-800 rounded-2xl sm:w-auto sm:mb-0"
             >
               Get Started
               <svg
